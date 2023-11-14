@@ -5,6 +5,7 @@ CREATE DATABASE IF NOT EXISTS koloseum_db;
 USE koloseum_db;
 
 -- Table of Users
+drop table Users;
 CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
@@ -13,6 +14,7 @@ CREATE TABLE Users (
 );
 
 -- Table of Tournaments
+drop table Tournaments;
 CREATE TABLE Tournaments (
     tournament_id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
@@ -22,6 +24,7 @@ CREATE TABLE Tournaments (
 );
 
 -- Table of Inscriptions
+drop table Inscriptions;
 CREATE TABLE Inscriptions (
     inscription_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -32,6 +35,7 @@ CREATE TABLE Inscriptions (
 );
 
 -- Table of Results
+drop table Results;
 CREATE TABLE Results (
     result_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
