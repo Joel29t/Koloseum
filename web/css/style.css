@@ -1,4 +1,4 @@
-body, h1, h2, p, ul, li, table {
+/* body, h1, h2, p, ul, li, table {
     margin: 0;
     padding: 0;
 }
@@ -184,4 +184,7 @@ footer input[type="submit"] {
     background-color: #1d2333;
     color: #fff;
     cursor: pointer;
+} */
+.colorPerfectionist{
+    background-color: #1d2333;
 }
