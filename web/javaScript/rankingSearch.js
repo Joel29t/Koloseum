@@ -1,33 +1,27 @@
 $(document).ready(function () {
-
+  // Por defecto, buscará por Player
   let opcionBusqueda = "Player";
 
-  $("#btnBuscarPlayer").click(function () {
-    opcionBusqueda = "Player";
-    $("#btnBuscarPlayer").addClass("btn-primary").removeClass("btn-secondary");
-    $("#btnBuscarOpciones").removeClass("btn-primary").addClass("btn-secondary");
-  });
-
-  $("#btnBuscarOpciones").click(function () {
-    opcionBusqueda = "OtrasOpciones";
-    $("#btnBuscarOpciones").addClass("btn-primary").removeClass("btn-secondary");
-    $("#btnBuscarPlayer").removeClass("btn-primary").addClass("btn-secondary");
+  $(".dropdown-item").click(function () {
+    opcionBusqueda = $(this).data("opcion");
+    $(".btn-outline-secondary").text("Buscar por " + opcionBusqueda);
   });
 
   $("#buscar").on("keyup", function () {
     let value = $(this).val().toLowerCase();
     $("table tbody tr").each(function () {
       let mostrarFila = false;
-      if (opcionBusqueda === "Player") {
-        mostrarFila = $(this).find("td:nth-child(2)").text().toLowerCase().indexOf(value) > -1;
-      } else if (opcionBusqueda === "OtrasOpciones") {
-        // Lógica para buscar por otras opciones como PJ, PG, PP, Points
-        for (let i = 3; i <= 6; i++) { 
-          if ($(this).find("td:nth-child(" + i + ")").text().toLowerCase().indexOf(value) > -1) {
-            mostrarFila = true;
-            break;
-          }
-        }
+      switch (opcionBusqueda) {
+        case "Player":
+          mostrarFila = $(this).find("td:nth-child(2)").text().toLowerCase().indexOf(value) > -1;
+          break;
+        case "PJ":
+        case "PG":
+        case "PP":
+        case "Points":
+          let columnaIndex = ["PJ", "PG", "PP", "Points"].indexOf(opcionBusqueda) + 3;
+          mostrarFila = $(this).find("td:nth-child(" + columnaIndex + ")").text().toLowerCase().indexOf(value) > -1;
+          break;
       }
 
       $(this).toggle(mostrarFila);
