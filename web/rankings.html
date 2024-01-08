@@ -9,9 +9,7 @@
   <!-- Bibliotecas externas jQuery, Popper.js y Bootstrap 5 -->
   <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <link rel="stylesheet" href="scss/custom.css">
   <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
@@ -35,17 +33,23 @@
     </nav>
   </header>
   <main class="home container mt-5">
-    <!-- Botones para cambiar opciones de búsqueda -->
-    <div class="btn-group mb-3">
-      <button type="button" class="btn btn-primary" id="btnBuscarPlayer">Buscar por Player</button>
-      <button type="button" class="btn btn-secondary" id="btnBuscarOpciones">Otras Opciones</button>
+
+    <div class="input-group mb-4">
+      <input type="text" class="form-control" aria-label="Text input with dropdown button" id="buscar" placeholder="Search">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary dropdown-toggle ms-3" type="button" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Search by</button>
+        <div class="dropdown-menu dropdown-menu-end">
+          <a class="dropdown-item" href="#" data-opcion="Player">Player</a>
+          <a class="dropdown-item" href="#" data-opcion="PJ">PJ</a>
+          <a class="dropdown-item" href="#" data-opcion="PG">PG</a>
+          <a class="dropdown-item" href="#" data-opcion="PP">PP</a>
+          <a class="dropdown-item" href="#" data-opcion="Points">Points</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Buscador -->
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Buscar" id="buscar">
-    </div>
-
+    
     <!-- Tabla -->
     <table class="table">
       <thead>
